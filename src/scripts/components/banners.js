@@ -1,14 +1,14 @@
 /** @jsx React.DOM */
-var React       = require('react');
-var Reflux      = require('reflux');
-//var BannerStore = require('../stores/BannerStore')
+var React        = require('react');
+var Reflux       = require('reflux');
+var BannersStore = require('../stores/bannersStore');
 
 // link to react router
 var Link = require('react-router').Link;
 
 // get our initial banners from our store
 function getBanners() {
-  return { banners: 'banners for our store'}
+  return { banners: BannersStore.getBanners() }
 }
 
 var Banners = React.createClass({
@@ -18,6 +18,17 @@ var Banners = React.createClass({
   },
 
   render: function() {
+    var rows = this.state.banners.map(function(banner, i) {
+      return (
+        <tr keys={i}>
+          <td><Link to="banner" params={{ id: banner.id }}>{banner.name}</Link></td>
+          <td>{banner.imageUrl}</td>
+          <td>{banner.targetUrl}</td>
+          <td>{banner.active}</td>
+        </tr>
+      )
+    });
+
     return (
       <div>
         <table className="table table-striped">
@@ -30,6 +41,7 @@ var Banners = React.createClass({
             </tr>
           </thead>
           <tbody>
+            { rows }
           </tbody>
         </table>
       </div>
@@ -37,8 +49,5 @@ var Banners = React.createClass({
   }
 
 });
-
-React.render(<Banners />, document.getElementById('app'));
-
 
 module.exports = Banners;
