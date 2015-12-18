@@ -8,13 +8,14 @@ var Route         = Router.Route;
 var DefaultRoute  = Router.DefaultRoute;
 
 // components
-// var ViewBanner    = require('./components/view');
+var ViewBanner    = require('./components/view');
 // var AddBanner     = require('./components/add');
 var Banners       = require('./components/banners');
 
 
 var routes = (
   <Route handler={ BannerManager }>
+    <Route name="banner" path="/banner/:id" handler={ ViewBanner} />
     <DefaultRoute name="home" handler= { Banners} />
   </Route>
 );

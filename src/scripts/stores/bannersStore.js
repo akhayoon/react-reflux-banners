@@ -24,6 +24,11 @@ var bannersStore = Reflux.createStore({
   // return all banners from private array
   getBanners: function(){
     return _banners;
+  },
+
+  // get a banner by id
+  getBanner: function(bannerId) {
+    return _.where(_banners, {'id': bannerId })[0];
   }
 
 });
