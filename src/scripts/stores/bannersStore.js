@@ -21,6 +21,8 @@ var bannersStore = Reflux.createStore({
     _banners = defaultBanners();
     // register toggleStatus action & bind to toggle function
     this.listenTo(actions.toggleStatus, this.toggle);
+    // register addBanner action & bind to addBanner function
+    this.listenTo(actions.addBanner, this.addBanner);
   },
 
   // return all banners from private array
@@ -33,7 +35,9 @@ var bannersStore = Reflux.createStore({
     return _.where(_banners, {'id': bannerId })[0];
   },
 
-
+  addBanner: function(banner) {
+    _banners.push(banner);
+  },
 
   // callback for toggle action
   toggle: function(bannerId){
