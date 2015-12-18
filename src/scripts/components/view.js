@@ -1,9 +1,9 @@
 /** @jsx React.DOM */
-var React = require('react');
-var Reflux = require('reflux');
-var Router = require('react-router');
+var React        = require('react');
+var Reflux       = require('reflux');
+var Router       = require('react-router');
 var BannersStore = require('../stores/bannersStore');
-// var actions
+var actions      = require('../actions/actions');
 
 var Display = React.createClass({
   mixins: [
@@ -42,6 +42,11 @@ var Display = React.createClass({
           <dt>Active?</dt>
           <dd>{this.state.banner.active}</dd>
         </dl>
+        <div className="col-sm-offset-2">
+          <button type="button" className="btn btn-primary" 
+          onClick= {actions.toggleStatus.bind(this,this.state.banner.id) }>
+          Toggle Active</button>
+        </div>
       </div>
     );
   }

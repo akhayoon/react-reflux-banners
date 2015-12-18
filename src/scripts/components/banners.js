@@ -12,6 +12,15 @@ function getBanners() {
 }
 
 var Banners = React.createClass({
+  mixins: [
+    Router.Navigation,
+    Router.State,
+    Reflux.ListenerMixin
+  ],
+
+  componentDidMount: function() {
+    this.listenTo(BannersStore);
+  },
 
   getInitialState: function() {
     return getBanners();
