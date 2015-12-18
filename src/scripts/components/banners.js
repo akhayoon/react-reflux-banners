@@ -22,7 +22,7 @@ var Banners = React.createClass({
     var rows = this.state.banners.map(function(banner, i) {
       return (
         <tr keys={i}>
-          <td><Link to="banner" params={{ id: banner.id }}>{banner.name}</Link></td>
+          <td>{banner.name}</td>
           <td>{banner.imageUrl}</td>
           <td>{banner.targetUrl}</td>
           <td>{banner.active}</td>

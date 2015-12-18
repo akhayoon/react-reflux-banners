@@ -5,11 +5,25 @@ var actions = require('../actions/actions');
 var $       = require('jquery'); 
 
 var defaultBanners = function() {
-  return [
-    {"id": 1, "name": "banner 1", "imageUrl": "http://somegif.com", "targetUrl": "http://www.topcoder.com", "active": "Yes"},
-    {"id": 2, "name": "banner 4", "imageUrl": "http://anothergif.com", "targetUrl": "http://www.appirio.com", "active": "Yes"},
-    {"id": 3, "name": "banner 2", "imageUrl": "http://one-more-gif.com", "targetUrl": "http://www.topcoder.com/blog", "active": "Yes"}
-  ]
+
+  // quick way to get data from .ajax fucnction
+   var myJsonObj = JSON.parse($.ajax({
+       type: 'GET',
+       url: 'http://localhost:3000/',
+       dataType: 'json',
+       async:false,
+       success: function(data) {
+           return data;
+       }
+   }).responseText);
+ 
+
+  return myJsonObj;
+  // return [
+  //   {"id": 1, "name": "banner 1", "imageUrl": "http://somegif.com", "targetUrl": "http://www.topcoder.com", "active": "Yes"},
+  //   {"id": 2, "name": "banner 4", "imageUrl": "http://anothergif.com", "targetUrl": "http://www.appirio.com", "active": "Yes"},
+  //   {"id": 3, "name": "banner 2", "imageUrl": "http://one-more-gif.com", "targetUrl": "http://www.topcoder.com/blog", "active": "Yes"}
+  // ]
 }
 
 var _banners = [];
@@ -28,6 +42,8 @@ var bannersStore = Reflux.createStore({
 
   // return all banners from private array
   getBanners: function(){
+    console.log('second');
+    console.log(_banners);
     return _banners;
   },
 
