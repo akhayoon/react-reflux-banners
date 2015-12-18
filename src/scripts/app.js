@@ -8,7 +8,9 @@ var Route         = Router.Route;
 var DefaultRoute  = Router.DefaultRoute;
 
 // components
-var ViewBanner    = require('./components/view');
+// var ViewBanner    = require('./components/view');
+// var AddBanner     = require('./components/add');
+var Banners       = require('./components/banners');
 
 
 var routes = (
