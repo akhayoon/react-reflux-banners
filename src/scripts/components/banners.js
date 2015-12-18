@@ -2,6 +2,7 @@
 var React        = require('react');
 var Reflux       = require('reflux');
 var BannersStore = require('../stores/bannersStore');
+var Router       = require('react-router')
 
 // link to react router
 var Link = require('react-router').Link;
@@ -12,15 +13,6 @@ function getBanners() {
 }
 
 var Banners = React.createClass({
-  mixins: [
-    Router.Navigation,
-    Router.State,
-    Reflux.ListenerMixin
-  ],
-
-  componentDidMount: function() {
-    this.listenTo(BannersStore);
-  },
 
   getInitialState: function() {
     return getBanners();
