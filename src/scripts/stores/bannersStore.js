@@ -1,7 +1,8 @@
 /** @jsx React.DOM */
 var Reflux  = require('reflux');
 var _       = require('lodash');
-var actions = require('../actions/actions'); 
+var actions = require('../actions/actions');
+var $       = require('jquery'); 
 
 var defaultBanners = function() {
   return [
@@ -36,6 +37,18 @@ var bannersStore = Reflux.createStore({
   },
 
   addBanner: function(banner) {
+    // Submit form via jQuery/AJAX
+    $.ajax({
+      type: 'POST',
+      url: 'http://localhost:3000/',
+      data: banner
+    })
+    .done(function(data) {
+      console.log('success');
+    })
+    .fail(function(jqXhr) {
+      console.log('failed to register');
+    });
     _banners.push(banner);
   },
 
