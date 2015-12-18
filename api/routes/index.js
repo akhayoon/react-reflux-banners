@@ -3,6 +3,13 @@ var router = express.Router();
 var _ = require('lodash');
 var Banner = require('../models/banner');
 
+
+app.all('/', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+ });
+
 /* GET all banners */
 router.get('/', function(req, res) {
   Banner.find({}, function(err, banners) {
