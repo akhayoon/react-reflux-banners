@@ -59,11 +59,11 @@ var bannersStore = Reflux.createStore({
     })
     .done(function(data) {
       console.log('success');
+      _banners.push(data);
     })
     .fail(function(jqXhr) {
       console.log('failed to register');
     });
-    _banners.push(banner);
   },
 
   // callback for toggle action
