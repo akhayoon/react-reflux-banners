@@ -58,7 +58,8 @@ var bannersStore = Reflux.createStore({
     })
     .done(function(data) {
       console.log('success');
-      _banners.push(data);
+      _banners.push(banner);
+      console.log(banner);
     })
     .fail(function(jqXhr) {
       console.log('failed to register');

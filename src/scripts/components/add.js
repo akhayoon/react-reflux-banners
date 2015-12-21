@@ -8,10 +8,10 @@ var BannersStore = require('../stores/bannersStore');
 
 var AddForm = React.createClass({
 
-  mixins: [
-    // needed for transitionto,
-    History 
-  ],
+  // mixins: [
+  //   // needed for transitionto,
+  //   History 
+  // ],
 
   getInitialState: function() {
     return {
@@ -69,7 +69,7 @@ var AddForm = React.createClass({
         errors: {}
       });
       //this.transitionTo('home');
-      this.history.pushState('home');
+      this.props.history.pushState(this.state, '/');
     }
   },
 
