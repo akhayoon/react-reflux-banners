@@ -17,7 +17,7 @@ var Display = React.createClass({
   },
 
   getInitialState: function() {
-    var bannerId = this.getParams().id;
+    var bannerId = this.getParams()._id;
     return {
       banner: BannersStore.getBanner(bannerId)
     }
@@ -25,7 +25,7 @@ var Display = React.createClass({
 
   toggleStatus: function() {
     this.setState({
-        banner: BannersStore.getBanner(this.getParams().id)
+        banner: BannersStore.getBanner(this.getParams()._id)
     });
   },
 

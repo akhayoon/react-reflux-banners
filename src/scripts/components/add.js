@@ -14,7 +14,7 @@ var AddForm = React.createClass({
   getInitialState: function() {
     return {
       banner: {
-        id: Math.floor((Math.random() * 10000) + 1),
+        //_id: '',
         name: '',
         imageUrl: 'http://testing.com',
         targetUrl: 'http://targetlink.com',
