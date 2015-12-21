@@ -8,6 +8,7 @@ var reactify   = require('reactify');
 var watchify   = require('watchify');
 var source     = require('vinyl-source-stream');
 var $          = require('gulp-load-plugins')();
+var babelify   = require('babelify');
 
 var prod = $.util.env.prod;
 
@@ -50,8 +51,8 @@ gulp.task('scripts', function() {
         basedir: __dirname,
         noparse: ['react/addons', 'reflux', 'fastclick', 'react-router'],
         entries: ['./src/scripts/app.js'],
-        transform: [reactify],
-        extensions: ['.js'],
+        transform: [babelify, reactify],
+        extensions: ['.js', '.json', '.es6'],
         debug: true,
         cache: {},
         packageCache: {},

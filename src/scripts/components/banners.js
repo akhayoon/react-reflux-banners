@@ -1,4 +1,3 @@
-/** @jsx React.DOM */
 var React        = require('react');
 var Reflux       = require('reflux');
 var BannersStore = require('../stores/bannersStore');

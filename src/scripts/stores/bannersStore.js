@@ -1,4 +1,3 @@
-/** @jsx React.DOM */
 var Reflux  = require('reflux');
 var _       = require('lodash');
 var actions = require('../actions/actions');
@@ -77,4 +76,4 @@ var bannersStore = Reflux.createStore({
 
 });
 
-module.exports = bannersStore;
+module.exports = bannersStore; 
