@@ -17,7 +17,7 @@ var Display = React.createClass({
   },
 
   getInitialState: function() {
-    var bannerId = parseInt(this.getParams().id);
+    var bannerId = this.getParams().id;
     return {
       banner: BannersStore.getBanner(bannerId)
     }
@@ -25,7 +25,7 @@ var Display = React.createClass({
 
   toggleStatus: function() {
     this.setState({
-        banner: BannersStore.getBanner(parseInt(this.getParams().id))
+        banner: BannersStore.getBanner(this.getParams().id)
     });
   },
 
@@ -44,7 +44,7 @@ var Display = React.createClass({
         </dl>
         <div className="col-sm-offset-2">
           <button type="button" className="btn btn-primary" 
-          onClick= {actions.toggleStatus.bind(this,this.state.banner.id) }>
+          onClick= {actions.toggleStatus.bind(this,this.state.banner._id) }>
           Toggle Active</button>
         </div>
       </div>

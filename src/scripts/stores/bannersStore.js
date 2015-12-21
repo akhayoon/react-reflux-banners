@@ -42,14 +42,12 @@ var bannersStore = Reflux.createStore({
 
   // return all banners from private array
   getBanners: function(){
-    console.log('second');
-    console.log(_banners);
     return _banners;
   },
 
   // get a banner by id
   getBanner: function(bannerId) {
-    return _.where(_banners, {'id': bannerId })[0];
+    return _.where(_banners, {'_id': bannerId })[0];
   },
 
   addBanner: function(banner) {
@@ -70,7 +68,7 @@ var bannersStore = Reflux.createStore({
 
   // callback for toggle action
   toggle: function(bannerId){
-    var banner = _.where(_banners, {'id': bannerId})[0];
+    var banner = _.where(_banners, {'_id': bannerId})[0];
     // toggle the banner status object
     banner.active = banner.active === 'Yes' ? 'No' : 'Yes';
     // pass the data to toggleStatus listenere in view.js
