@@ -1,3 +1,6 @@
+import { History } from 'react-router'
+
+
 var React = require('react');
 var Routr = require('react-router');
 var _     = require('lodash');
@@ -6,8 +9,8 @@ var BannersStore = require('../stores/bannersStore');
 var AddForm = React.createClass({
 
   mixins: [
-    // needed for transitionto
-    require('react-router').Navigation, 
+    // needed for transitionto,
+    History 
   ],
 
   getInitialState: function() {
@@ -65,7 +68,8 @@ var AddForm = React.createClass({
         banner: {},
         errors: {}
       });
-      this.transitionTo('home');
+      //this.transitionTo('home');
+      this.history.pushState('home');
     }
   },
 
